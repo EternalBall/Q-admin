@@ -5,6 +5,11 @@ import App from "./App.vue";
 import router from "./router";
 import pinia from "./stores";
 
+import "animate.css";
+import "./styles/index.scss";
+
+import "uno.css";
+
 const app = createApp(App);
 // 注册路由
 app.use(router);

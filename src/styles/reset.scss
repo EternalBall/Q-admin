@@ -1,0 +1,15 @@
+html,
+body,
+#app {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+a {
+    color: var(--el-color-primary);
+    text-decoration: none;
+    outline: 0;
+}
+a:hover {
+    color: #0a16f1;
+}
