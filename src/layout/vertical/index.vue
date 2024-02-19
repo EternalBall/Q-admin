@@ -1,6 +1,15 @@
 <script setup lang="ts">
+import { computed } from "vue";
+import settings from "@/settings.ts";
+import Logo from "@/layout/components/logo/index.vue";
 import useGlobalStore from "@/stores/modules/global";
+import useAuthStore from "@/stores/modules/auth";
 const globalStore = useGlobalStore();
+const authStore = useAuthStore();
+
+const menuList = computed(() => authStore.showMenuList);
+const menuAnimate = settings.menuAnimate;
+console.log("纵向布局左侧动态路由", menuList, menuAnimate);
 </script>
 
 <template>
@@ -9,8 +18,8 @@ const globalStore = useGlobalStore();
             class="vertical-aside transition-all"
             :style="{ width: !globalStore.isCollapse ? globalStore.menuWidth + 'px' : '70px' }"
         >
-            <div>logo</div>
-            <div>menu</div>
+            <Logo :isCollapse="globalStore.isCollapse" :layout="globalStore.layout" />
+            <el-menu> </el-menu>
         </el-aside>
         <el-container>
             <el-header class="vertical-header"> 头部 </el-header>

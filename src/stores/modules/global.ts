@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-const global = defineStore("global", {
+const globalStore = defineStore("global", {
     state: () => {
         return {
             // 是否全屏
@@ -38,4 +38,4 @@ const global = defineStore("global", {
         };
     },
 });
-export default global;
+export default globalStore;
