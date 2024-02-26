@@ -135,3 +135,56 @@ export const staticRouter: RouteRecordRaw[] = [
     //   ]
     // }
 ];
+
+/**
+ * errorRouter (错误页面路由)
+ */
+export const errorRouter = [
+    {
+        path: "/403",
+        name: "403",
+        component: () => import("@/views/error/403.vue"),
+        meta: {
+            title: "403页面",
+            icon: "QuestionFilled", // 菜单图标
+            isHide: "1", // 代表路由在菜单中是否隐藏，是否隐藏（0隐藏，1显示）
+            isLink: "1", // 是否外链（有值则是外链）
+            isKeepAlive: "0", // 是否缓存路由数据（0是，1否）
+            isFull: "1", // 是否缓存全屏（0是，1否）
+            isAffix: "1", // 是否缓存固定路由（0是，1否）
+        },
+    },
+    {
+        path: "/404",
+        name: "404",
+        component: () => import("@/views/error/404.vue"),
+        meta: {
+            title: "404页面",
+            icon: "CircleCloseFilled", // 菜单图标
+            isHide: "1", // 代表路由在菜单中是否隐藏，是否隐藏（0隐藏，1显示）
+            isLink: "1", // 是否外链（有值则是外链）
+            isKeepAlive: "0", // 是否缓存路由数据（0是，1否）
+            isFull: "1", // 是否缓存全屏（0是，1否）
+            isAffix: "1", // 是否缓存固定路由（0是，1否）
+        },
+    },
+    {
+        path: "/500",
+        name: "500",
+        component: () => import("@/views/error/500.vue"),
+        meta: {
+            title: "500页面",
+            icon: "WarningFilled", // 图标
+            isHide: "1", // 代表路由在菜单中是否隐藏，是否隐藏（0隐藏，1显示）
+            isLink: "1", // 是否外链（有值则是外链）
+            isKeepAlive: "0", // 是否缓存路由数据（0是，1否）
+            isFull: "1", // 是否缓存全屏（0是，1否）
+            isAffix: "1", // 是否缓存固定路由（0是，1否）
+        },
+    },
+    // 找不到path将跳转404页面
+    {
+        path: "/:pathMatch(.*)*",
+        component: () => import("@/views/error/404.vue"),
+    },
+];

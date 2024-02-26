@@ -3,11 +3,11 @@ import { SVG_PREFIX } from "@/config/index.ts";
 import AsideSubMenu from "@/layout/components/menu/AsideSubMenu.vue";
 import { useRouter } from "vue-router";
 const { menuList } = defineProps<{ menuList: Array<any> }>();
-import useGlobalStroe from "@/stores/modules/global";
+import useGlobalStore from "@/stores/modules/global";
 import { storeToRefs } from "pinia";
 import { onMounted, watch } from "vue";
 const router = useRouter();
-const globalStore = useGlobalStroe();
+const globalStore = useGlobalStore();
 const { menuBLSColor } = storeToRefs(globalStore);
 
 const handlerMenuIsLink = (item: any) => {
@@ -131,8 +131,6 @@ onMounted(() => {
     }
 }
 /* 子级菜单字体高亮，父级菜单也高亮 */
-</style>
-<style lang="scss" scoped>
 .el-sub-menu.is-active > .el-sub-menu__title {
     color: var(--el-color-primary) !important;
 }

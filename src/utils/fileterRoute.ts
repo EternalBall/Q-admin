@@ -7,7 +7,7 @@ import Layout from "@/layout/index.vue";
  */
 export function generFlattenRoutes(data: any[]) {
     // 1.获取动态路由组件地址
-    let modules = import.meta.glob("@/views/*.vue");
+    let modules = import.meta.glob("@/views/**/*.vue");
     const routes: any = [];
     // 2.循环生成vue路由
     data.forEach((item) => {
@@ -42,7 +42,7 @@ export function generFlattenRoutes(data: any[]) {
  * @returns
  */
 export function generateRoutes(data: any[], parentId: any) {
-    let modules = import.meta.glob("@/views/*.vue");
+    let modules = import.meta.glob("@/views/**/*.vue");
     const routeList: any = [];
     data.forEach((item, i) => {
         if (item && !router.hasRoute(item.path) && item.parentId == parentId) {

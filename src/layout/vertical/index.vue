@@ -3,6 +3,7 @@ import { computed } from "vue";
 import settings from "@/settings.ts";
 import { useRoute } from "vue-router";
 import Logo from "@/layout/components/logo/index.vue";
+import Main from "@/layout/components/main/index.vue";
 import useGlobalStore from "@/stores/modules/global";
 import useAuthStore from "@/stores/modules/auth";
 import AsideSubMenu from "@/layout/components/menu/AsideSubMenu.vue";
@@ -34,7 +35,9 @@ const menuAnimate = settings.menuAnimate;
         </el-aside>
         <el-container>
             <el-header class="vertical-header"> 头部 </el-header>
-            <el-main class="vertical-main"> main </el-main>
+            <el-main class="vertical-main">
+                <Main />
+            </el-main>
         </el-container>
     </el-container>
 </template>
@@ -56,8 +59,8 @@ const menuAnimate = settings.menuAnimate;
         height: $aside-header-height;
         background-color: var(--el-header-bg-color);
     }
-    .vertical-main {
-    }
+    // .vertical-main {
+    // }
 }
 // 去除菜单右侧边框
 .el-menu {

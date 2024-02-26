@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory, createWebHistory } from "vue-router";
-import { layoutRouter } from "@/router/modules/staticRoute";
+import { layoutRouter, staticRouter, errorRouter } from "@/router/modules/staticRoute";
 
 // 读取env配置
 const mode = import.meta.env.VITE_ROUTER_MODE;
@@ -13,7 +13,7 @@ const routerMode: any = {
 // 创建路由
 const router = createRouter({
     history: routerMode[mode](),
-    routes: [...layoutRouter],
+    routes: [...layoutRouter, ...staticRouter, ...errorRouter],
     strict: false,
     scrollBehavior() {
         return { left: 0, top: 0 };
