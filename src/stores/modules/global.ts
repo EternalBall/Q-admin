@@ -37,5 +37,18 @@ const globalStore = defineStore("global", {
             headerInverted: false,
         };
     },
+    actions: {
+        // 设置左侧菜单边框颜色[纵向和经典布局]
+        setMenuBLSColor() {
+            if (this.isDark) {
+                // 暗黑
+                this.menuBLSColor = "#121212";
+            } else {
+                // 明亮
+                this.menuBLSColor = "#ffffff";
+            }
+            return this.menuBLSColor;
+        },
+    },
 });
 export default globalStore;
