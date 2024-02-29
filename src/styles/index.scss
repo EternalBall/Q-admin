@@ -1,1 +1,10 @@
 @import "./reset.scss";
+.q-icon {
+    // 翻转色字体颜色
+    color: var(--el-header-text-color);
+    outline: none; // 去除伪元素
+    &:hover {
+        color: var(--el-color-primary);
+        cursor: pointer;
+    }
+}

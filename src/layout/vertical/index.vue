@@ -4,6 +4,7 @@ import settings from "@/settings.ts";
 import { useRoute } from "vue-router";
 import Logo from "@/layout/components/logo/index.vue";
 import Main from "@/layout/components/main/index.vue";
+import Header from "@/layout/components/Header/index.vue";
 import useGlobalStore from "@/stores/modules/global";
 import useAuthStore from "@/stores/modules/auth";
 import AsideSubMenu from "@/layout/components/menu/AsideSubMenu.vue";
@@ -34,7 +35,9 @@ const menuAnimate = settings.menuAnimate;
             </el-menu>
         </el-aside>
         <el-container>
-            <el-header class="vertical-header"> 头部 </el-header>
+            <el-header class="vertical-header">
+                <Header />
+            </el-header>
             <el-main class="vertical-main">
                 <Main />
             </el-main>

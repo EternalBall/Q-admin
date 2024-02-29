@@ -1,3 +1,4 @@
+import { DEFAULT_THEME } from "@/config";
 import { defineStore } from "pinia";
 
 const globalStore = defineStore("global", {
@@ -20,7 +21,7 @@ const globalStore = defineStore("global", {
             // 当前系统语言[默认中文]
             language: "zh",
             // 选择主题[默认兔子坦克形态]
-            // themeColor: DEFAULT_THEME,
+            themeColor: DEFAULT_THEME,
             // 布局模式 (纵向：vertical | 经典：classic | 横向：crosswise | 分栏：column)
             layout: "vertical",
             // 路由动画
@@ -48,6 +49,19 @@ const globalStore = defineStore("global", {
                 this.menuBLSColor = "#ffffff";
             }
             return this.menuBLSColor;
+        },
+        // 侧边栏开关
+        setCollapse(value: Boolean) {
+            this.isCollapse = !value;
+            return this.isCollapse;
+        },
+        // 设置当前global.ts所有参数值
+        setGlobalState(...val: any) {
+            this.$patch({ [val[0]]: val[1] });
+        },
+        // 设置ElementPlus尺寸
+        setDimension(value: string) {
+            this.dimension = value;
         },
     },
 });
