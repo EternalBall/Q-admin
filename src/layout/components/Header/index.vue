@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Collapse from "@/layout/components/Header/components/Collapse.vue";
+import BreadCrumd from "@/layout/components/Header/components/BreadCrumd.vue";
 </script>
 
 <template>
@@ -8,6 +9,7 @@ import Collapse from "@/layout/components/Header/components/Collapse.vue";
             <!-- 左侧菜单展开和折叠图标 -->
             <Collapse />
             <!-- 面包屑 -->
+            <BreadCrumd />
         </div>
         <div class="header-right"></div>
     </div>
