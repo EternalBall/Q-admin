@@ -74,7 +74,7 @@ export const useTheme = () => {
     const switchDark = () => {
         const html = document.documentElement as HTMLElement;
         if (isDark.value) html.setAttribute("class", "dark");
-        else html.setAttribute("calss", "");
+        else html.setAttribute("class", "");
         changeThemeColor(themeColor.value);
         setAsideTheme();
         setHeaderTheme();
@@ -119,12 +119,12 @@ export const useTheme = () => {
     // 设置菜单样式
     const setMenuTheme = () => {
         let type = "light";
-        // 布局为横向 && 头部反转
+        // 如果布局为横向 && 头部反转
         if (layout.value === "horizontal" && headerInverted.value) type = "inverted";
-        // 布局为侧向 && 侧边反转
+        // 如果布局不为横向 && 侧边反转
         if (layout.value !== "horizontal" && asideInverted.value) type = "inverted";
-        // 暗黑主题
-        if (isDark.value) type = "drak";
+        // 如果是黑色主题，直接为黑色
+        if (isDark.value) type = "dark";
         const theme = menuTheme[type!];
 
         for (const [key, value] of Object.entries(theme)) {
@@ -136,7 +136,7 @@ export const useTheme = () => {
     const setAsideTheme = () => {
         let type = "light";
         if (asideInverted.value) type = "inverted";
-        if (isDark.value) type = "drak";
+        if (isDark.value) type = "dark";
         const theme = asideTheme[type!];
         // 遍历 theme 键值会以数组的两个元素返回
         for (const [key, value] of Object.entries(theme)) {
@@ -149,7 +149,7 @@ export const useTheme = () => {
     const setHeaderTheme = () => {
         let type = "light";
         if (headerInverted.value) type = "inverted";
-        if (isDark.value) type = "drak";
+        if (isDark.value) type = "dark";
         const theme = headerTheme[type!];
         for (const [key, value] of Object.entries(theme)) {
             document.documentElement.style.setProperty(key, value as string | null);

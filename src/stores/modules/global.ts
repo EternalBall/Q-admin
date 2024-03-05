@@ -1,7 +1,12 @@
-import { DEFAULT_THEME } from "@/config";
+import { DEFAULT_THEME, PINIA_PREFIX } from "@/config";
 import { defineStore } from "pinia";
 
 const globalStore = defineStore("global", {
+    persist: {
+        // enabled: true, // true 表示开启持久化保存
+        key: PINIA_PREFIX + "global", // 默认会以 store 的 id 作为 key
+        storage: localStorage,
+    },
     state: () => {
         return {
             // 是否全屏
