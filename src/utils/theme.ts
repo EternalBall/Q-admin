@@ -101,17 +101,13 @@ export const useTheme = () => {
 
     // 灰色与弱色切换
     const changeGreyOrWeak = (type: any, value: boolean) => {
-        // 获取body
         const body = document.body as HTMLElement;
-        // 判断是否为灰色模式或弱色模式
         if (!value) return body.removeAttribute("style");
         const styles: any = {
             grey: "filter: grayscale(1)",
             weak: "filter: invert(80%)",
         };
-        // 设置样式
         body.setAttribute("style", styles[type]);
-
         const propName = type === "grey" ? "isWeak" : "isGrey";
         globalStore.setGlobalState(propName, false);
     };
